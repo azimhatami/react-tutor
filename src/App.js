@@ -1,23 +1,13 @@
+import Section1 from './Section1';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const color = 'w';
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Section1 name='Azim' salary={3000} position='remote' company='google'/>
+      <button type='submit' className={color === 's' ? 'success' : 'warnning'}>click me</button>
     </div>
   );
 }
