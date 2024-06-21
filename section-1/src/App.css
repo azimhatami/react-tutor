@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.success {
+  background-color: rgb(14, 159, 86);
+}
+
+.warnning {
+  background-color: rgb(244, 244, 68);
+}
