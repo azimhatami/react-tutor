@@ -2,6 +2,7 @@ import Section1 from './Section1';
 import Section2 from './Section2';
 import Section3 from './Section3';
 import Section4 from './Section4';
+import Section5 from './Section5';
 import logo from './logo.svg';
 import './App.css';
 
@@ -13,7 +14,8 @@ function App() {
       <button type='submit' className={color === 's' ? 'success' : 'warnning'}>click me</button> */}
       {/* <Section2/> */}
       {/* <Section3/> */}
-      <Section4/>
+      {/*<Section4/>*/}
+      <Section5/>
     </div>
   );
 }
