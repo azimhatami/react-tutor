@@ -9,3 +9,9 @@
 .warnning {
   background-color: rgb(244, 244, 68);
 }
+
+nav {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
