@@ -13,9 +13,20 @@ import Profile from './Pages/Profile';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { createContext, useState } from 'react';
+import useAppStore from './store/AppStore';
+import BTN from './Components/BTN';
+
+
+export const ProfileContext = createContext();
 
 function App() {
   const color = 'w';
+
+  const [userName, setUserName] = useState('Azim');
+
+  // const {} = useAppStore()
+
   return (
     <div className="App">
       {/* <Section1 name='Azim' salary={3000} position='remote' company='google'/>
@@ -26,17 +37,21 @@ function App() {
       {/* <Section5/> */}
       {/* <Section6/> */}
       {/* <Section7/> */}
-      <Router>
-        <Navbar/>
-        <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/about' element={<About />}/>
-          <Route path='/contact' element={<Contact />}/>
-          <Route path='/profile/:name' element={<Profile />}/>
-          <Route path='*' element={<div>Not Found</div>}/>
-        </Routes>
-        <footer>This is Footer</footer>
-      </Router>
+      <ProfileContext.Provider value={{userName, setUserName}}>
+        <Router>
+          <Navbar/>
+          <Routes>
+            <Route path='/' element={<Home userName={userName}/>}/>
+            {/* <Route path='/' element={<Home />}/> */}
+            <Route path='/about' element={<About />}/>
+            <Route path='/contact' element={<Contact />}/>
+            <Route path='/profile/:name?' element={<Profile/>}/>
+            <Route path='*' element={<div>Not Found</div>}/>
+          </Routes>
+          <footer style={{marginTop : '80px'}}>This is Footer</footer>
+        </Router>
+        {/* <BTN/> */}
+      </ProfileContext.Provider>
     </div>
   );
 }
