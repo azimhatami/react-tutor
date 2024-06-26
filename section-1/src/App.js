@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { createContext, useState } from 'react';
 import useAppStore from './store/AppStore';
 import BTN from './Components/BTN';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 
 export const ProfileContext = createContext();
@@ -24,6 +25,10 @@ function App() {
   const color = 'w';
 
   const [userName, setUserName] = useState('Azim');
+
+  const client = new QueryClient({ defaultOptions : {
+    queries: {refetchOnWindowFocus: false}
+  }});
 
   // const {} = useAppStore()
 
@@ -37,6 +42,7 @@ function App() {
       {/* <Section5/> */}
       {/* <Section6/> */}
       {/* <Section7/> */}
+      <QueryClientProvider client={client}>
       <ProfileContext.Provider value={{userName, setUserName}}>
         <Router>
           <Navbar/>
@@ -52,6 +58,7 @@ function App() {
         </Router>
         {/* <BTN/> */}
       </ProfileContext.Provider>
+      </QueryClientProvider>
     </div>
   );
 }
